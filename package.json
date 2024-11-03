@@ -1,0 +1,7 @@
+{
+  "type": "module",
+  "dependencies": {
+    "uuidv4": "^6.2.13",
+    "uuidv7": "^1.0.2"
+  }
+}

@@ -1,18 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Todo With JS</title>
   <link rel="stylesheet" href="./index.css">
 </head>
+
 <body>
-  <h1 id="main-Container">Todo with JS</h1>
-  <div id="wishlist-Container">
-    <input type="checkbox"/>
-    <label></label>
+  <div class="app-Container">
+    <h1 class="app-Name">Todo with JS</h1>
+    <h3 class="repeated-Msg none-D">Todo is already in the Todo List</h3>
+    <div class="input-Container">
+      <input type="text" class="input">
+      <button class="add-Btn">Add</button>
+    </div>
+
+    <div class="todo-Container">
+      <!-- <div class="todo">
+        <input type="checkbox" class="check-Box" />
+        <label class="todoLabel">Europe tour</label>
+        <button class="delete-Btn">Delete</button>
+      </div>
+      <div class="todo">
+        <input type="checkbox" class="check-Box" />
+        <label class="todoLabel">Europe tour</label>
+        <button class="delete-Btn">Delete</button>
+      </div> -->
+    </div>
+
   </div>
 
-  <script src="./todo.js"></script>
+
+
+  <script type="module" src="./todo.js"></script>
 </body>
+
 </html>

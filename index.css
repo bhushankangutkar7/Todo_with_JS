@@ -1,20 +1,90 @@
-*{
+* {
   margin: 0;
   padding: 0;
-  background-color: rgb(190, 187, 187);
   color: rgb(12, 10, 10);
 }
 
-#main-Container{
-  margin-top: 5Vh;
+.app-Container {
+  width: 100vw;
+  height: 100vh;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  background-color: rgb(233, 229, 229);
 }
 
-#wishlist-Container{
-  margin-top: 5Vh;
+.app-Name {
+  margin: 10px;
+  font-size: 35px;
+}
+
+.repeated-Msg {
+  color: red;
+}
+
+.input-Container {
+  margin: 10px;
+  min-width: 400px;
+  max-width: 1000px;
+}
+
+.input {
+  align-self: left;
+  width: 300px;
+  height: 25px;
+  margin: 10px;
+}
+
+.add-Btn {
+  margin-right: auto;
+  width: 80px;
+  height: 30px;
+  font-size: 18px;
+}
+
+
+
+.todo-Container {
+  margin: 10px;
+  min-width: 400px;
+  max-width: 1000px;
   display: flex;
+  flex-direction: column;
+  max-width: 800px;
+}
+
+.todo {
+  margin: 10px;
+  display: flex;
+  flex-direction: row;
   justify-content: center;
-  align-items: center;
+
+}
+
+
+.check-Box {
+  margin-left: 10px;
+  margin-top: 4px;
+  align-content: left;
+  width: 16px;
+  height: 16px;
+}
+
+.todoLabel {
+
+  margin-left: 10px;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.delete-Btn {
+  margin-top: 4px;
+  margin-left: auto;
+  width: 45px;
+  height: 20px;
+  font-size: 12px;
+}
+
+.none-D{
+  display: none;
 }
