@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:FILL,ROND@0..1,100&icon_names=home,palette,settings&display=block);
+
 * {
   margin: 0;
   padding: 0;
@@ -70,19 +72,27 @@
   height: 16px;
 }
 
-.todoLabel {
 
+
+.todoLabel {
   margin-left: 10px;
   margin-bottom: 10px;
   font-size: 20px;
 }
 
+.textStrikeThrough {
+  text-decoration: line-through;
+}
+
 .delete-Btn {
-  margin-top: 4px;
   margin-left: auto;
-  width: 45px;
-  height: 20px;
-  font-size: 12px;
+  font-size: 8px;
+  border: none;
+  background-color: transparent;
+}
+
+.material-symbols-outlined {
+  margin-top: auto;
 }
 
 .none-D{

@@ -2,13 +2,7 @@ const input = document.querySelector(".input");
 const addBtn = document.querySelector(".add-Btn");
 const repeatedMsg = document.querySelector(".repeated-Msg");
 const todoContainer = document.querySelector(".todo-Container");
-let id, value, isCompleted;
-let todoList = JSON.parse(localStorage.getItem("todoL")) || [
-  {id:"Sample1", value:"Sample Todo 1 ", isCompleted:false},
-  {id:"Sample2", value:"Sample Todo 2", isCompleted:false},
-  {id:"Sample3", value:"Sample Todo 3", isCompleted:false}
-];
-
+let todoList = JSON.parse(localStorage.getItem("todoL")) || [];
 
 // function uuid() {
 //   return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'
@@ -53,32 +47,54 @@ addBtn.addEventListener("click", (event) => {
   }
 });
 
+// TodoList Render Function
 const renderTodoList = (todoList) => {
   todoContainer.innerHTML = "";
   todoList.map((todo) => {
     const newTodo = document.createElement("DIV");
     newTodo.classList.add("todo");
-    newTodo.innerHTML = `<input type="checkbox" class="check-Box" data-key=${todo.id}.${todo.value} />
-    <label class="todoLabel" data-key=${todo.id}.${todo.value}>${todo.value}</label>
-    <button class="delete-Btn" data-id=${todo.id}>Delete</button>`;
+    newTodo.innerHTML = 
+    `<input type="checkbox"  class="check-Box" data-key=${todo.id}.${todo.value} ${todo.isCompleted ? "checked": ""} />
+    <label class="todoLabel ${todo.isCompleted ? "textStrikeThrough" : ""}" data-key=${todo.id}.${todo.value}>${todo.value}</label>
+    <button class="delete-Btn" data-id=${todo.id}>
+      <span class="material-symbols-outlined" data-id=${todo.id}>
+        delete
+      </span>
+    </button>`;
     todoContainer.appendChild(newTodo);
   });
 };
 
-renderTodoList(todoList); // This ensures any sample is shown to the user
+// This ensures any sample is shown to the user
+renderTodoList(todoList); 
 
-const deleteButtons = document.querySelectorAll(".delete-Btn");
-// console.log(deleteButtons);
 
+// EventListener on todoContainer for checkbox, strikethrough and delete functionality
 todoContainer.addEventListener("click", (event)=>{
+
+  // For deletion
   if(event.target.dataset.id) {
     todoList = todoList.filter((todo) => todo.id !== event.target.dataset.id);
-    renderTodoList(todoList);
-    updateLocalStorage(todoList);
-  }
-  if(event.target.dataset.key) {
-    todoList.map((todo)=> `${todo.id}.${todo.value}` === event.target.dataset.key? {...todo, isCompleted:!isCompleted}: todo);
   };
-  console.log(todoList);
+
+  // For checkbox
+  if (event.target.dataset.key) {
+    let eventKey = event.target.dataset.key;
+    let [id] = eventKey.split("."); //Split require as eventKey doesn't captures words after spaces
+
+    todoList = todoList.map((todo) => {
+      // Toggles the completed state
+      if (todo.id === id) {
+        return { ...todo, isCompleted: !todo.isCompleted }; // Update isCompleted based on checkbox state
+      } 
+      else {
+        return todo;
+      }
+    });
+  }
+
+  updateLocalStorage(todoList);
+  renderTodoList(todoList);
+
 });
 
